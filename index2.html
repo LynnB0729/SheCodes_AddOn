@@ -5,8 +5,38 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
   <title>Document</title>
+  <style>
+    .lightButton {
+      background-color: black;
+      color: white;
+    }
+
+    .darkButton {
+      background-color: white; 
+      color: black;
+    }
+
+  </style>
 </head>
-<body>
-  <button>This is a button</button>
+<body class="">
+  <button class="lightButton">Change to Dark Mode</button>
+
+  <script>
+    
+    function changeMode(){
+      let changeColor = document.querySelector(".lightButton");
+      changeColor.classList.add("darkButton");
+
+      const grabStyle = document.createAttribute("style");
+    // Set the value of the style attribute (want to make background black)
+      grabStyle.value = "background:black";
+    // Add the style attribute to the body:
+      const getBody = document.getElementsByTagName("body")[0];
+      getBody.setAttributeNode(grabStyle);
+    }
+    
+    let buttonBasket = document.querySelector("button");
+    buttonBasket.addEventListener("click", changeMode);
+  </script>
 </body>
 </html>
